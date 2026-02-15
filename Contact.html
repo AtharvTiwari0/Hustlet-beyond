@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Bigdies</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        input, select, textarea {
+            width: 100%; padding: 1rem; margin-top: 0.5rem; margin-bottom: 1.5rem;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
+            border-radius: 12px; color: white; outline: none;
+        }
+        input:focus { border-color: var(--primary); }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Bigdies</div>
+        <a href="team.html" class="back-btn">← Back</a>
+    </nav>
+
+    <main class="container" style="padding-top: 120px;">
+        <div class="glass-card animate" style="max-width: 600px; margin: 0 auto;">
+            <h2 style="margin-bottom: 2rem;">Let's talk</h2>
+            
+            <form action="https://submit-form.com/Pn8aUQHVe" method="POST">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="John Doe" required>
+
+                <label>How can we help?</label>
+                <select name="help_type" id="helpSelector" onchange="toggleOtherField()" required>
+                    <option value="web_dev">Web Development</option>
+                    <option value="poster_design">Poster Design</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <div id="otherField" class="hidden">
+                    <label>Please specify</label>
+                    <input type="text" name="other_details">
+                </div>
+
+                <label>Mobile Number</label>
+                <input type="tel" name="phone" placeholder="+1..." required>
+
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="email@example.com" required>
+
+                <label>Message (Optional)</label>
+                <textarea name="message" rows="4"></textarea>
+
+                <button type="submit" class="btn" style="width: 100%;">Send Request</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function toggleOtherField() {
+            const selector = document.getElementById('helpSelector');
+            const otherField = document.getElementById('otherField');
+            otherField.className = selector.value === 'other' ? 'animate' : 'hidden';
+        }
+    </script>
+</body>
+</html>
